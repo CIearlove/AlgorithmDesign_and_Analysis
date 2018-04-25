@@ -3,7 +3,6 @@ package Chapter03_DynamicPlanning;
 public class MatrixChain {
 
 	public static void main(String[] args) {
-		
 		//¸÷¾ØÕóµÄÎ¬Êı
 		int[][] A_0 =new int[30][35];
 		int[][] A_1 =new int[35][15];
