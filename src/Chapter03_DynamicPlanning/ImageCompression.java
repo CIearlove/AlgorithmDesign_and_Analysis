@@ -8,18 +8,30 @@ public class ImageCompression {
 	
 	public static void main(String[] args) {
 		
-		int[] p = new int[16];
-		for(int i=0;i<p.length;i++){
+		int[] p = {0,10,12,15,255,1,2};
+		/*
+		 * int[] p = new int [200];
+		  for(int i=0;i<p.length;i++){
 			p[i] = (int)(Math.random()*255);
 			System.out.print(p[i]+" ");
 		}
-		System.out.println();
-		
+		 */
 		int[] s = new int[p.length];
 		int[] l = new int[p.length];
 		int[] b = new int[p.length];
 		
 		compress(p,s,l,b);
+		
+		for(int i=0;i<p.length;i++){
+			
+			System.out.print("   p[i]:"+p[i]);
+			System.out.print("   s[i]:"+s[i]);
+			System.out.print("   l[i]:"+l[i]);
+			System.out.print("   b[i]:"+b[i]);
+			System.out.println();
+		}
+		
+		output(s,l,b);
 	}
 
 	/**
@@ -65,12 +77,18 @@ public class ImageCompression {
 		}
 		return k;
 	}
-	
+	/**
+	 * 最优分段的最后一段的长度和像素位数分别存储于l[n]和b[n]中。
+	 * 其前一段的段长度和像素位数存储于l[n-l[n]]和b[n-l[n]]中。
+	 * @param n
+	 * @param s
+	 * @param l
+	 */
 	private static void traceback(int n,int s[],int l[]){
 		if(n==0)
 			return;
 		traceback(n-l[n],s,l);
-		s[m++] = n - l[n];
+		s[m++] = n-l[n];//分段的位置
 	}
 	
 	public static void output(int s[],int l[],int b[]){
@@ -79,12 +97,12 @@ public class ImageCompression {
 		m=0;
 		traceback(n,s,l);
 		s[m] = n;
-		System.out.println("Decomposed into "+m+"segments");
+		System.out.println("Decomposed into "+m+" segments");
 		for(int j=1;j<=m;j++){
 			l[j] = l[s[j]];
 			b[j] = b[s[j]];
 		}
 		for(int j=1;j<=m;j++)
-			System.out.println(l[j]+","+b[j]);
+			System.out.println("分段"+j+"的长度："+l[j]+","+"分段中表示每个元素所需的位数："+b[j]);
 	}
 }
