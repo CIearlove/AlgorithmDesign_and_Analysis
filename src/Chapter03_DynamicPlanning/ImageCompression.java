@@ -16,6 +16,7 @@ public class ImageCompression {
 			System.out.print(p[i]+" ");
 		}
 		 */
+		
 		int[] s = new int[p.length];
 		int[] l = new int[p.length];
 		int[] b = new int[p.length];
