@@ -65,7 +65,6 @@ public class LcsLength {
 	}
 	
 	/**
-	 * 
 	 * @param i 序列X_i的元素个数
 	 * @param j 序列Y_j的元素个数
 	 * @param x 序列X_i与序列Y_j中元素个数较多的序列
