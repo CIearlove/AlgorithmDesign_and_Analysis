@@ -55,6 +55,15 @@ public class test {
         return a;
     }
     
+    /**
+     * 
+     * @param a 比赛日程表
+     * @param tox
+     * @param toy
+     * @param fromx
+     * @param fromy
+     * @param r 有r*r的矩阵的值得到复制
+     */
     private static void copy(int[][] a, int tox, int toy, 
             int fromx, int fromy, int r){
         for(int i =0;i<r;i++){
@@ -62,7 +71,6 @@ public class test {
                 a[tox+i][toy+j] = a[fromx+i][fromy+j];
             }
         }
-        
     }
         
     
