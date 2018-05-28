@@ -25,7 +25,6 @@ public class Element implements Comparable{
 		
 		return 1;
 	}
-
 	public int getKey() {
 		return key;
 	}
